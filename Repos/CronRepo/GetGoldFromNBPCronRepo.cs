@@ -37,8 +37,14 @@ namespace NBPAPI.Repos.CronRepo
                     // dla kazdego elementu z listy nowy obiekt zapisywany w bazie z czasem importu
                     var importedGoldPrices = new List<GoldPrice>();
 
+                    if (goldPrices == null)
+                        throw new NotFoundException("nie dostalismy nic z nbp");
+
                     foreach (var item in goldPrices)
                     {
+                        if (item == null)
+                            throw new NotFoundException("nic nie dostalismy z nbp");
+
                         var newGoldPrice = new GoldPrice
                         {
                             Cena = item.Cena,
@@ -46,9 +52,6 @@ namespace NBPAPI.Repos.CronRepo
                             //TODO: zły format daty +1
                             ImportTime = DateTime.UtcNow
                         };
-
-                        if (item == null)
-                            throw new NotFoundException("nic nie dostalismy z nbp");
 
                         importedGoldPrices.Add(newGoldPrice);
                     }

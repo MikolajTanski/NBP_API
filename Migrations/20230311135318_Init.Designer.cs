@@ -12,7 +12,7 @@ using NBPAPI;
 namespace NBPAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230212193036_Init")]
+    [Migration("20230311135318_Init")]
     partial class Init
     {
         /// <inheritdoc />
