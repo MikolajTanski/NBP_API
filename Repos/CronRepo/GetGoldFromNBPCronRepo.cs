@@ -16,8 +16,6 @@ namespace NBPAPI.Repos.CronRepo
             _db = db;
         }
 
-        //TODO refactor do serwisu
-
         /// <summary>
         /// metoda pozwalajaca pobierac ceny złota z nbp na podstawie url
         /// </summary>

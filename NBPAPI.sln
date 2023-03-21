@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBPAPI", "NBPAPI.csproj", "{2341A652-3188-4DE2-B545-7F16BEDFFC86}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NinjaTests", "..\NinjaTests\NinjaTests.csproj", "{0A6F4A90-30E3-4D8A-A9DA-BF1EFCCE3A90}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTests", "..\ApiTests\ApiTests.csproj", "{07FD907B-64CE-4638-BCBF-2D9CC3A7302E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{2341A652-3188-4DE2-B545-7F16BEDFFC86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2341A652-3188-4DE2-B545-7F16BEDFFC86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2341A652-3188-4DE2-B545-7F16BEDFFC86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A6F4A90-30E3-4D8A-A9DA-BF1EFCCE3A90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A6F4A90-30E3-4D8A-A9DA-BF1EFCCE3A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A6F4A90-30E3-4D8A-A9DA-BF1EFCCE3A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A6F4A90-30E3-4D8A-A9DA-BF1EFCCE3A90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07FD907B-64CE-4638-BCBF-2D9CC3A7302E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07FD907B-64CE-4638-BCBF-2D9CC3A7302E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07FD907B-64CE-4638-BCBF-2D9CC3A7302E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07FD907B-64CE-4638-BCBF-2D9CC3A7302E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

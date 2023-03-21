@@ -1,16 +1,17 @@
 ﻿using Hangfire;
 using Microsoft.AspNetCore.Mvc;
 using NBPAPI.Repos.CronRepo.ICronRepo;
+using NBPAPI.Services.CronService.ICronService;
 
 [Route("api/[controller]")]
 [ApiController]
 public class CronController : ControllerBase
 {
-    private readonly IGetGoldFromNBPCronRepo _iGetGoldFromNBPRepo;
+    private readonly IGetGoldFromNBPCronService _GetGoldFromNBPRService;
 
-    public CronController(IGetGoldFromNBPCronRepo iGetGoldFromNBPRepo)
+    public CronController(IGetGoldFromNBPCronService GetGoldFromNBPService)
     {
-        _iGetGoldFromNBPRepo = iGetGoldFromNBPRepo;
+        _GetGoldFromNBPRService = GetGoldFromNBPService;
     }
 
     [HttpPost]
@@ -19,7 +20,7 @@ public class CronController : ControllerBase
     {
         RecurringJob.AddOrUpdate(
       "JobForDailyGoldPrice",
-      () => _iGetGoldFromNBPRepo.GetGoldFromNBPAsync(),
+      () => _GetGoldFromNBPRService.GetGoldFromNBPAsync(),
       "0 */5 * * *"); // Run every 5 hours
 
         return Ok($"Job Completed. Cool!");

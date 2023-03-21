@@ -5,6 +5,7 @@ using NBPAPI.Repos.CronRepo;
 using NBPAPI.Repos.CronRepo.ICronRepo;
 using NBPAPI.Repos.GoldRepo;
 using NBPAPI.Repos.GoldRepo.IGoldRepo;
+using NBPAPI.Services.CronService.ICronService;
 using NBPAPI.Services.GoldServices;
 using NBPAPI.Services.GoldServices.IGoldServices;
 
@@ -21,6 +22,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IGetGoldFromNBPCronRepo, GetGoldFromNBPCronRepo>();
 builder.Services.AddScoped<IGoldPriceRepo, GoldPriceRepo>();
 builder.Services.AddScoped<IGoldPriceService, GoldPriceService>();
+builder.Services.AddScoped<IGetGoldFromNBPCronService, GetGoldFromNBPCronService>();
 
 //connection
 var connectionString = builder.Configuration.GetConnectionString("DefaulConnection");
