@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NBPAPI.Middelware.Exception;
 using NBPAPI.Models;
 using NBPAPI.Repos.GoldRepo.IGoldRepo;
 
@@ -29,10 +30,26 @@ namespace NBPAPI.Repos.GoldRepo
             await _db.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(GoldPrice goldPrice)
+        public async Task UpdateAsync(int id, GoldPrice goldPrice)
         {
-            _db.GoldPrices.Update(goldPrice);
-            await _db.SaveChangesAsync();
+            var priceToUpdate = await _db.GoldPrices.FindAsync(id);
+
+            if (priceToUpdate != null)
+            {
+                //goldPrice.ImportTime = 'manual'
+                // Aktualizujemy właściwości obiektu
+                priceToUpdate.Cena = goldPrice.Cena;
+                priceToUpdate.Data = goldPrice.Data;
+                priceToUpdate.ImportTime = DateTime.Now;
+
+                // Zapisujemy zmiany w bazie danych
+                _db.GoldPrices.Update(priceToUpdate);
+                await _db.SaveChangesAsync();
+            }
+            else
+            {
+                throw new NotFoundException("nie znaleziono rekordu do edytowania");
+            }
         }
 
         public async Task DeleteAsync(GoldPrice goldPrice)

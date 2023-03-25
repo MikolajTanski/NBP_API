@@ -37,9 +37,9 @@ namespace NBPAPI.Services.GoldServices
            await _goldPriceRepo.AddAsync(goldPrice);
         }
 
-        public async Task UpdateAsync(GoldPrice goldPrice)
+        public async Task UpdateAsync(int id, GoldPrice goldPrice)
         {
-           await _goldPriceRepo.UpdateAsync(goldPrice);
+           await _goldPriceRepo.UpdateAsync(id, goldPrice);
         }
 
         public async Task DeleteAsync(int id)

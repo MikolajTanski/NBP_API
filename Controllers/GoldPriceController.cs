@@ -50,9 +50,7 @@ namespace NBPAPI.Controllers
         [Route("UpdateGoldPrice")]
         public async Task  Update(int id, [FromBody] GoldPrice goldPrice)
         {
-            var existingGoldPrice = await _goldPriceService.GetByIdAsync(id);
-
-            await _goldPriceService.UpdateAsync(existingGoldPrice);
+            await _goldPriceService.UpdateAsync(id,goldPrice);
         }
 
         [HttpDelete]

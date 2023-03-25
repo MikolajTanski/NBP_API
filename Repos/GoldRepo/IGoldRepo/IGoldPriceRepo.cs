@@ -7,7 +7,7 @@ namespace NBPAPI.Repos.GoldRepo.IGoldRepo
         Task<GoldPrice> GetByIdAsync(int id);
         Task<List<GoldPrice>> GetAllAsync();
         Task AddAsync(GoldPrice goldPrice);
-        Task UpdateAsync(GoldPrice goldPrice);
+        Task UpdateAsync(int id, GoldPrice goldPrice);
         Task DeleteAsync(GoldPrice goldPrice);
         Task<List<GoldPrice>> GetByDateRangeAsync(DateTime startDate, DateTime endDate);
          //TODO: średnia cena
