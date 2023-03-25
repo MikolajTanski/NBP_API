@@ -10,5 +10,12 @@ namespace NBPAPI
 
         }
         public DbSet<GoldPrice> GoldPrices { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var factory = LoggerFactory.Create(builder => builder.AddConsole());
+            optionsBuilder.UseLoggerFactory(factory);
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
     }
 }
