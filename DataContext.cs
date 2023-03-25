@@ -13,9 +13,14 @@ namespace NBPAPI
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var factory = LoggerFactory.Create(builder => builder.AddConsole());
-            optionsBuilder.UseLoggerFactory(factory);
-            optionsBuilder.EnableSensitiveDataLogging();
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .AddEnvironmentVariables()
+                .Build();
+
+            if (configuration.GetValue<string>("ASPNETCORE_ENVIRONMENT") == "Development")
+            {
+                optionsBuilder.EnableSensitiveDataLogging();
+            }
         }
     }
 }
